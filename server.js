@@ -5,6 +5,7 @@ const bcrypt = require('bcrypt')
 const jwt = require('jsonwebtoken')
 
 const sqlite3 = require('sqlite3')
+const port = process.env.PORT || 3000;
 
 const app = express()
 
@@ -20,7 +21,7 @@ const initilzieDb = async() =>{
             filename: dbpath,
             driver:sqlite3.Database
         });
-        app.listen(3000, () => console.log("server running at port 3000"));
+        app.listen(port, () => console.log(`Server Running on port: ${port}`));
     }catch(error){
         console.log(`DB Error:${error.message}`)
         process.exit(1);
