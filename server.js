@@ -112,7 +112,7 @@ app.post('/login', async(req,res) =>{
 
 app.post('/tasks',authenticateToken,async(req,res) =>{
     const taskDetails = req.body;
-    const {id,title,description,assigneeId,createdAt,updatedAt} = taskDetails
+    const {title,description,assigneeId,createdAt,updatedAt} = taskDetails
     const query = `
     INSERT INTO
         Tasks(title,description,assigneeId,createdAt,updatedAt)
